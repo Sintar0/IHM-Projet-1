@@ -1,3 +1,4 @@
+exports premiereVue;
 module com.example.projet_1 {
     requires javafx.controls;
     requires javafx.fxml;
