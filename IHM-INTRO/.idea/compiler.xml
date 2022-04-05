@@ -6,13 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="IHM-AGENDA" />
-        <module name="IHM-AGENDA1" />
+        <module name="INTRO-IHM" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="IHM-AGENDA" target="17" />
-      <module name="IHM-AGENDA1" target="17" />
+      <module name="INTRO-IHM" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

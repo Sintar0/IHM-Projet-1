@@ -6,20 +6,20 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class PremiersElementsGraphique extends Application {
-    public void start (Stage stage){
-        VBox root = new VBox(10);
-        Label labelHello = new Label("Hello");
-        Label labelHelloBis = new Label("Hello JavaFX");
+import java.io.File;
 
-        root.getChildren().addAll(labelHello, labelHelloBis);
+public class PremiersElementsGraphique extends Application {
+    public void start(Stage stage) {
+        VBox root = new VBox(10);
+        Label LabelHello = new Label("Hello");
+        root.getChildren().add(LabelHello);
+        Label labelHelloBis = new Label("Hello JAVAFX");
+        root.getChildren().add(labelHelloBis);
         Scene scene = new Scene(root, 300, 80);
+        File css = new File("css"+ File.separator+"premiersStyles.css");
+        scene.getStylesheets().add(css.toURI().toString());
         stage.setScene(scene);
         stage.setTitle("Hello JavaFX");
         stage.show();
-        }
-    public static void main ( String[] args) {
-        Application.launch();
-
     }
 }

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TEST.iml" filepath="$PROJECT_DIR$/TEST.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/IHM.iml" filepath="$PROJECT_DIR$/.idea/IHM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IHM-INTRO/IHM-AGENDA.iml" filepath="$PROJECT_DIR$/IHM-INTRO/IHM-AGENDA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IHM-AGENDA1/IHM-AGENDA1.iml" filepath="$PROJECT_DIR$/IHM-AGENDA1/IHM-AGENDA1.iml" />
     </modules>
   </component>
 </project>
