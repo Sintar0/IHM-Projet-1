@@ -44,6 +44,7 @@ public class DateCalendrier extends Date implements ConstantesCalendrier, Compar
     public int getAnnee(){
         return chAnnee;
     }
+    public int getJour(){return chJour;}
     public String toString(){
 
         return  ConstantesCalendrier.JOURS_SEMAINE[chJourSem-1] + " " + super.toString();
