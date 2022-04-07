@@ -1,4 +1,4 @@
-package modele;
+package vue;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -10,6 +10,9 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import modele.CalendrierDuMois;
+import modele.ConstantesCalendrier;
+import modele.DateCalendrier;
 
 import java.util.List;
 
@@ -94,4 +97,4 @@ public class VBoxRootTilePane extends VBox implements ConstantesCalendrier {
 
 
     }
-}
+

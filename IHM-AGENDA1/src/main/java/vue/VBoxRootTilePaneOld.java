@@ -1,10 +1,14 @@
+
 package vue;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
@@ -20,17 +24,33 @@ public class VBoxRootTilePaneOld extends VBox implements ConstantesCalendrier {
         StackPane stackPaneMois = new StackPane();
         // Création des bouttons
         ToggleGroup buttonGroup = new ToggleGroup();
+        DateCalendrier todayDate = new DateCalendrier();
+
+        HBox datemois = new HBox();
+        HBox cLickclick = new HBox();
+        Label labelTitre = new Label(MOIS[todayDate.getMois()-1]+ " " + todayDate.getAnnee());
+        Button prev = new Button("<");
+        Button next = new Button(">");
+        Button start = new Button("<<");
+        Button end = new Button(">>");
+
+        cLickclick.getChildren().addAll(start, prev, next, end);
+        datemois.getChildren().add(labelTitre);
+
+
+
         for (int i = 1; i <= 12; i++) {
             CalendrierDuMois mouthCalendar = new CalendrierDuMois(i, 2022);
             //
             TilePane tilePane = new TilePane();
             tilePane.setPrefColumns(7);
             //
-            tilePane.setPrefRows(mouthCalendar.getAnnee().size() % 7 + 1);
+            tilePane.setMaxWidth(210);
+            tilePane.setMinWidth(210);
             //
             tilePane.setId("opaque");
             //
-            for (String jourAb : JOURS_SEMAINE) {
+            for (String jourAb : JOUR_ABJ) {
                 Label labelJour = new Label(jourAb);
                 tilePane.getChildren().add(labelJour);
             }
@@ -53,11 +73,45 @@ public class VBoxRootTilePaneOld extends VBox implements ConstantesCalendrier {
                     boutonDate.setId("dateHorsMois");
                 }
                 if (date.compareTo(todayDate) == 0) {
-                    labelDate.setId("today");
+                    labelTitre.setId("today");
                 }
             }
-            tilePane.setAccessibleText(MOIS[]);[i - 1]);
+            tilePane.setAccessibleText(MOIS[i - 1]);
             stackPaneMois.getChildren().add(tilePane);
         }
+        List<Node> listDates = stackPaneMois.getChildren();
+        prev.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                listDates.get(listDates.size()-1).toBack();
+                labelTitre.setText(listDates.get(11).getAccessibleText());
+            }
+
+        });
+        next.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                listDates.get(0).toFront();
+                labelTitre.setText(listDates.get(11).getAccessibleText());
+            }
+        });
+        start.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                while (!listDates.get(listDates.size()-1).getAccessibleText().equals(MOIS[0]))
+                    listDates.get(listDates.size()-1).toBack();
+                labelTitre.setText(listDates.get(11).getAccessibleText());
+            }
+        });
+        end.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                while (!listDates.get(listDates.size()-1).getAccessibleText().equals(MOIS[11]))
+                    listDates.get(0).toFront();
+                labelTitre.setText(listDates.get(11).getAccessibleText());
+
+            }
+        });
+        getChildren().addAll(stackPaneMois, cLickclick,datemois);
     }
 }
