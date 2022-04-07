@@ -85,6 +85,7 @@ public class VBoxRootTilePaneOld extends VBox implements ConstantesCalendrier {
             }
             tilePane.setAccessibleText(MOIS[i - 1]);
             stackPaneMois.getChildren().add(tilePane);
+
         }
         List<Node> listDates = stackPaneMois.getChildren();
         prev.setOnAction(new EventHandler<ActionEvent>() {
@@ -119,6 +120,15 @@ public class VBoxRootTilePaneOld extends VBox implements ConstantesCalendrier {
 
             }
         });
+
+        DateCalendrier today = new DateCalendrier();
+        int indexMois = 12 - today.getMois();
+
+        for(int i = indexMois; i != 0; i--){
+            listDates.get(listDates.size() - 1).toBack();
+        }
+
         getChildren().addAll(stackPaneMois, cLickclick,datemois);
+
     }
 }
