@@ -55,7 +55,13 @@ public class VBoxRootTilePaneOld extends VBox implements ConstantesCalendrier {
                 tilePane.getChildren().add(labelJour);
             }
             for (DateCalendrier date : mouthCalendar.getDates()) {
-                //
+                Label labelDate = new Label(date.toString());
+                if (date.getMois() != mouthCalendar.getMois()) {
+                labelDate.setId("dateHorsMois");
+                }
+                if (date.compareTo(todayDate) == 0) {
+                labelDate.setId("today");
+                }
                 ToggleButton boutonDate = new ToggleButton(Integer.toString(date.getJour()));
                 //
                 boutonDate.setToggleGroup(buttonGroup);
@@ -75,6 +81,7 @@ public class VBoxRootTilePaneOld extends VBox implements ConstantesCalendrier {
                 if (date.compareTo(todayDate) == 0) {
                     labelTitre.setId("today");
                 }
+
             }
             tilePane.setAccessibleText(MOIS[i - 1]);
             stackPaneMois.getChildren().add(tilePane);
