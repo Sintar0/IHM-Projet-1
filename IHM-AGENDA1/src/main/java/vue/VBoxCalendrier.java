@@ -1,22 +1,14 @@
 package vue;
 import javafx.geometry.Insets;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import modele.CalendrierDuMois;
 import modele.DateCalendrier;
 
-import java.io.File;
 
-
-
-public class VBoxRoot extends VBox implements modele.ConstantesCalendrier {
-    public VBoxRoot(){
+public class VBoxCalendrier extends VBox implements modele.ConstantesCalendrier {
+    public VBoxCalendrier(){
         CalendrierDuMois monthCalendar = new CalendrierDuMois(3,2022);
         //System.out.println(monthCalendar);
 

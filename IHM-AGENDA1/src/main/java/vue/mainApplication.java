@@ -9,8 +9,8 @@ import java.io.File;
 
 public class mainApplication extends Application {
     public void start(Stage stage) {
-        VBox root = new VBoxRootTilePaneOld();
-        Scene scene = new Scene(root, 250, 250);
+        HboxRoot root = new HboxRoot();
+        Scene scene = new Scene(root, 500, 500);
         File css = new File("css" + File.separator + "premiersStyles.css");
         scene.getStylesheets().add(css.toURI().toString());
 
