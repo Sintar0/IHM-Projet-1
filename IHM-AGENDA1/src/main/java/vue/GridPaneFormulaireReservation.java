@@ -18,6 +18,9 @@ public class GridPaneFormulaireReservation extends GridPane implements modele.Co
         int ligne = 0;
         GridPane.setHalignment(labDate, HPos.CENTER);
         this.setGridLinesVisible(true);
+        this.setHgap(5);
+        this.setVgap(5);
+
         this.add(labDate,1,ligne++,5,1); // date
         this.add(new Label("Cours"), 0, ligne++,1,1); // cour
         TextField tfCours = new TextField();// zone de texte
@@ -34,8 +37,9 @@ public class GridPaneFormulaireReservation extends GridPane implements modele.Co
         this.add(avancé, 1, 5);
         this.add(expert, 2, 5);
 
-        this.add(new Label("horaire"),0,7);
-        this.add(new Label("de"),1,7);
+        this.add(new Label("début"),0,7);
+        this.add(new Label("h"),2,7);
+        this.add(new Label("h"),2,8);
         /*
         ComboBox<String> comboHeureDebut;
         comboHeureDebut = peupleComboBox (HEURES);
