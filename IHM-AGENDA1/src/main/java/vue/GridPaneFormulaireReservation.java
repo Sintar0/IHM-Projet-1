@@ -86,5 +86,7 @@ public class GridPaneFormulaireReservation extends GridPane implements modele.Co
 
         Reservation r = new Reservation(titre, todayDate, new PlageHoraire(new Horaire(debH, debM), new Horaire(finH, finM)) );
         return r;
+
+
     }
 }

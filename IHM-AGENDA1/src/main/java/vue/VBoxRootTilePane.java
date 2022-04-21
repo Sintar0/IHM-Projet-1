@@ -63,6 +63,8 @@ public class VBoxRootTilePane extends VBox implements ConstantesCalendrier {
                 labelDate.setId("today");
                 }
                 ToggleButton boutonDate = new ToggleButton(Integer.toString(date.getJour()));
+                Controleur controleur = HboxRoot.getControleur();
+                boutonDate.setOnAction(controleur);
                 //
                 boutonDate.setToggleGroup(buttonGroup);
                 tilePane.getChildren().add(boutonDate);
