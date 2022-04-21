@@ -15,6 +15,7 @@ import javafx.scene.layout.VBox;
 import modele.CalendrierDuMois;
 import modele.ConstantesCalendrier;
 import modele.DateCalendrier;
+import controler.Controler;
 import java.util.List;
 
 // Création du nouveau stackPane
@@ -63,7 +64,7 @@ public class VBoxRootTilePane extends VBox implements ConstantesCalendrier {
                 labelDate.setId("today");
                 }
                 ToggleButton boutonDate = new ToggleButton(Integer.toString(date.getJour()));
-                Controleur controleur = HboxRoot.getControleur();
+                Controler controleur = HboxRoot.getControleur();
                 boutonDate.setOnAction(controleur);
                 //
                 boutonDate.setToggleGroup(buttonGroup);

@@ -5,10 +5,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import modele.DateCalendrier;
-import modele.Horaire;
-import modele.PlageHoraire;
-import modele.Reservation;
+import modele.*;
 
 public class GridPaneFormulaireReservation extends GridPane implements modele.ConstantesCalendrier {
     TextField tfCours = new TextField();// zone de texte
@@ -20,10 +17,12 @@ public class GridPaneFormulaireReservation extends GridPane implements modele.Co
     Button annuler = new Button("Annuler");
     Button save = new Button("Enregistrer");
     DateCalendrier todayDate = new DateCalendrier();
+    Label labDate ;
 
     public GridPaneFormulaireReservation() {
 
-        Label labDate = new Label(JOURS_SEMAINE[todayDate.getJourSemaine() - 1] + " " + todayDate.getJour() + " " + MOIS[todayDate.getMois() - 1]);
+        labDate = new Label(JOURS_SEMAINE[todayDate.getJourSemaine() - 1] + " " + todayDate.getJour() + " " + MOIS[todayDate.getMois() - 1]);
+        //labDate.setText("1111");
         int ligne = 0;
         GridPane.setHalignment(labDate, HPos.CENTER);
         this.setHgap(20);
@@ -69,13 +68,16 @@ public class GridPaneFormulaireReservation extends GridPane implements modele.Co
         this.add(annuler, 0, 25);
         this.add(save, 1, 25);
 
-        save.setOnAction(new EventHandler<ActionEvent>() {
+       /* save.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 System.out.println(getReserv());
             }
-        });
+        });*/
+
+        save.setOnAction(HboxRoot.getControleur());
     }
+
     public Reservation getReserv(){
         int debH = chDebHeure.getSelectionModel().getSelectedItem();
         int debM = chDebMin.getSelectionModel().getSelectedItem();
@@ -88,5 +90,13 @@ public class GridPaneFormulaireReservation extends GridPane implements modele.Co
         return r;
 
 
+    }
+
+    public void setDate(DateCalendrier parDate){
+        System.out.println("setDate");
+        todayDate = parDate;
+        labDate.setText("bbbb");
+
+        System.out.println("setdate " + labDate.getText());
     }
 }
