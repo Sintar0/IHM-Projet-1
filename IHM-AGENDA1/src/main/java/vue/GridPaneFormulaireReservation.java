@@ -8,9 +8,9 @@ import javafx.scene.layout.GridPane;
 import modele.*;
 
 public class GridPaneFormulaireReservation extends GridPane implements modele.ConstantesCalendrier {
-    TextField tfCours = new TextField();// zone de texte
-    ToggleGroup toggle = new ToggleGroup();
-    ComboBox<Integer> chDebHeure = new ComboBox<>(),
+    protected TextField tfCours = new TextField();// zone de texte
+    protected ToggleGroup toggle = new ToggleGroup();
+    protected ComboBox<Integer> chDebHeure = new ComboBox<>(),
             chDebMin = new ComboBox<>(),
             chFinHeure = new ComboBox<>(),
             chFinMin = new ComboBox<>();
@@ -34,13 +34,21 @@ public class GridPaneFormulaireReservation extends GridPane implements modele.Co
 
         Label Niveau = new Label("Niveau");
         this.add(new Label("Niveau"), 0, 3); // champs niveau
-        RadioButton débutant = new RadioButton("Débutant");
+        RadioButton debutant = new RadioButton("Débutant");
         RadioButton moyen = new RadioButton("Moyen");
-        RadioButton avancé = new RadioButton("Avancé");
+        RadioButton advanced = new RadioButton("Avancé");
         RadioButton expert = new RadioButton("Expert");
-        this.add(débutant, 1, 3);
+
+
+        debutant.setToggleGroup(toggle);
+        debutant.setSelected(true);
+        moyen.setToggleGroup(toggle);
+        advanced.setToggleGroup(toggle);
+        expert.setToggleGroup(toggle);
+
+        this.add(debutant, 1, 3);
         this.add(moyen, 2, 3);
-        this.add(avancé, 1, 5);
+        this.add(advanced, 1, 5);
         this.add(expert, 2, 5);
 
         this.add(new Label("début"), 0, 7);
@@ -68,14 +76,10 @@ public class GridPaneFormulaireReservation extends GridPane implements modele.Co
         this.add(annuler, 0, 25);
         this.add(save, 1, 25);
 
-       /* save.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println(getReserv());
-            }
-        });*/
 
         save.setOnAction(HboxRoot.getControleur());
+
+        annuler.setOnAction(actionEvent -> reset());
     }
 
     public Reservation getReserv(){
@@ -86,17 +90,35 @@ public class GridPaneFormulaireReservation extends GridPane implements modele.Co
 
         String titre = tfCours.getText();
 
-        Reservation r = new Reservation(titre, todayDate, new PlageHoraire(new Horaire(debH, debM), new Horaire(finH, finM)) );
-        return r;
+        return new Reservation(titre, todayDate, new PlageHoraire(new Horaire(debH, debM), new Horaire(finH, finM)) );
 
 
     }
-
     public void setDate(DateCalendrier parDate){
-        System.out.println("setDate");
         todayDate = parDate;
-        labDate.setText("bbbb");
-
-        System.out.println("setdate " + labDate.getText());
+        labDate.setText(todayDate.toString());
     }
+
+    public void reset(){
+        String texteVide = "";
+        tfCours.getText();
+        tfCours.setText(texteVide);
+        /*
+        toggle.getSelectedToggle();
+        toggle.selectToggle(debutant);
+        */
+        chDebHeure.getAccessibleText();
+        chDebHeure.setAccessibleText(texteVide);
+
+
+        chDebMin.getAccessibleText();
+        chDebMin.setAccessibleText(texteVide);
+
+        chFinHeure.getAccessibleText();
+        chFinHeure.setAccessibleText(texteVide);
+
+        chFinMin.getAccessibleText();
+        chFinMin.setAccessibleText(texteVide);
+    }
+
 }

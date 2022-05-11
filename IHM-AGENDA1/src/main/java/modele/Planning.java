@@ -47,6 +47,12 @@ public class Planning {
             return "treeMap " + chTreeMapReservations.size() + " - "+ chTreeMapReservations + "\n" ;
         }
 
-
+        public static void main (String [] args){
+            Planning p = new Planning();
+            p.ajout(new Reservation("111",new DateCalendrier(),new PlageHoraire(new Horaire(2,0), new Horaire(3,0))));
+            p.ajout(new Reservation("222",new DateCalendrier(1,2,2022),new PlageHoraire(new Horaire(2,0), new Horaire(3,0))));
+            p.ajout(new Reservation("333",new DateCalendrier(20,1,2022),new PlageHoraire(new Horaire(2,0), new Horaire(3,0))));
+            System.out.println(p);
+        }
     }
 
