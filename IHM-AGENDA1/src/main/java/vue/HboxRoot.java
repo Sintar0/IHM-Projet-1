@@ -9,9 +9,10 @@ public class HboxRoot extends HBox {
     private static VBoxCalendrier calendrierPane = new VBoxCalendrier();
     private static GridPaneFormulaireReservation formPane = new GridPaneFormulaireReservation();
     private static Planning planning = new Planning();
+    private static VBoxAffichagePlanning affichagePlanning = new VBoxAffichagePlanning();
     public HboxRoot(){
         //VBoxCalendrier Calendrier = new VBoxCalendrier();
-        getChildren().addAll(calendrierPane, formPane);
+        getChildren().addAll(calendrierPane, formPane, affichagePlanning);
 
     }
     public static GridPaneFormulaireReservation getFormPane(){
@@ -26,4 +27,5 @@ public class HboxRoot extends HBox {
     public static VBoxCalendrier getCalendrier(){
         return calendrierPane;
     }
+
 }

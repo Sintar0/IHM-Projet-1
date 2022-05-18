@@ -4,7 +4,7 @@ public class DateCalendrier extends Date implements ConstantesCalendrier, Compar
     private int chJourSem;
     private int chNoSem;
 
-    public DateCalendrier(){
+    public  DateCalendrier(){
         Calendar today = Calendar.getInstance();
         chAnnee = today.get(Calendar.YEAR);
         chMois = today.get(Calendar.MONTH) + 1;

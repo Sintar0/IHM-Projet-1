@@ -21,6 +21,8 @@ public class Controler extends GridPaneFormulaireReservation implements EventHan
             DateCalendrier date = (DateCalendrier) ((ToggleButton) event.getSource()).getUserData();
             System.out.println(date.toString());
             reservationPane.setDate(date);
+
+
         }
 // la source de event est le bouton "Enregistrer"
         if (event.getSource() instanceof Button) {
